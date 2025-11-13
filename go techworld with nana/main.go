@@ -18,5 +18,5 @@ func main() {
 
 	userName = "Tom"
 	userTickets = 2
-	fmt.Printf("User %v booked %v tickets", userName, userTickets)
+	fmt.Printf("User %v booked %v tickets in", userName, userTickets)
 }
