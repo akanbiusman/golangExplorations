@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("🍅 Pomodoro Timer Started!")
+	fmt.Println("Pomodoro Timer Started!")
 	startTimer(25*time.Minute, 5*time.Minute)
 }
 
@@ -30,7 +30,7 @@ func countdown(duration time.Duration) {
 			duration -= time.Second
 			fmt.Printf("\rTime left: %v ", duration.Round(time.Second))
 		case <-timer.C:
-			fmt.Println("\n⏰ Time’s up!")
+			fmt.Println("\nTime’s up!")
 			ticker.Stop()
 			return
 		}
