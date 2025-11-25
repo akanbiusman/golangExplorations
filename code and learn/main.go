@@ -1,18 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	var a uint8 = 202
-	var b uint8 = 141
-	c := a &^ b
-	fmt.Println(strconv.FormatUint(uint64(c), 2))
-	fmt.Println(a ^ b)
-	fmt.Println(a &^ b)
-	fmt.Println(strconv.FormatUint(uint64(a), 2))
-	fmt.Println(a & b)
+	var a = [2][2]int{{1, 2}, {3, 4}}
+	fmt.Println(a[1][1])
 
+	a[1][1] = 5
+	fmt.Println(a[1][1])
 }
