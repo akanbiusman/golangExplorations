@@ -1,33 +1,18 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"strconv"
 )
 
-type student struct {
-	firstName string
-	lastName  string
-}
-
 func main() {
-	newStudent := student{
-		firstName: "usman",
-		lastName:  "akanbi",
-	}
+	var a uint8 = 202
+	var b uint8 = 141
+	c := a &^ b
+	fmt.Println(strconv.FormatUint(uint64(c), 2))
+	fmt.Println(a ^ b)
+	fmt.Println(a &^ b)
+	fmt.Println(strconv.FormatUint(uint64(a), 2))
+	fmt.Println(a & b)
 
-	prev, err := updateLastName(&newStudent, "akanbi")
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(prev)
-}
-
-func updateLastName(s *student, newlastName string) (*string, error) {
-	if newlastName == "" {
-		return nil, errors.New("empty last name")
-	}
-	previous := s.lastName
-	s.lastName = newlastName
-	return &previous, nil
 }
