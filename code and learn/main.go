@@ -2,46 +2,28 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"math/rand"
 )
 
-type Book struct {
-	title    string
-	author   string
-	pages    int
-	flips    int
-	isSaved  bool
-	isRented bool
-	readTime time.Time
+type footballPlayer struct {
+	stamina int
+	power   int
 }
 
 func main() {
-	gow := Book{
-		title:    "god of war",
-		author:   "usman",
-		pages:    10,
-		flips:    3,
-		isSaved:  false,
-		isRented: false,
-		readTime: time.Now(),
-	}
-
-	saveBook(&gow)
-	fmt.Println(gow.isSaved)
-	fmt.Println(gow.readTime)
-	flipBook(&gow)
-}
-
-func flipBook(book *Book) {
-	for i := 0; i < book.pages; i++ {
-		if i == book.flips {
-			pagesLeft := book.pages - book.flips
-			fmt.Printf("You have %v pages left to read", pagesLeft)
+	team := make([]footballPlayer, 11)
+	for i := 0; i < len(team); i++ {
+		team[i] = footballPlayer{
+			stamina: rand.Intn(10),
+			power:   rand.Intn(10),
 		}
 	}
+	for i := 0; i < len(team); i++ {
+		team[i].kickBall()
+	}
 }
 
-func saveBook(book *Book) {
-	book.isSaved = true
-	book.readTime = time.Now()
+func (f footballPlayer) kickBall() {
+	shot := f.stamina + f.power
+	fmt.Printf("I'm kicking the ball with %v shot\n", shot)
 }
