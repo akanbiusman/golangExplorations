@@ -5,13 +5,17 @@ import (
 	"math/rand"
 )
 
+type player interface {
+	kickBall()
+}
+
 type footballPlayer struct {
 	stamina int
 	power   int
 }
 
 func main() {
-	team := make([]footballPlayer, 11)
+	team := make([]player, 11)
 	for i := 0; i < len(team); i++ {
 		team[i] = footballPlayer{
 			stamina: rand.Intn(10),
