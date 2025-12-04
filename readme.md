@@ -1,1 +1,1 @@
-# learning golang everyday
+# learning golang
